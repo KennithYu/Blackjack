@@ -4,6 +4,7 @@ package blackjack;
  *
  * @authors Shannon Han, Kennith King Hay Yu
  */
+//this is a test
 public class Card {
    private String suit; //clubs, spades, diamonds, hearts
    private int value;//1-13
