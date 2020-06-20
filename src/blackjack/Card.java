@@ -6,36 +6,41 @@ package blackjack;
  */
 //this is a test
 public class Card {
-   private String suit; //clubs, spades, diamonds, hearts
-   private int value;//1-13
+   public enum Suit {
+            HEARTS, DIAMONDS, CLUBS, SPADES
+        }
+        
+        public enum Value {
+            ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, 
+            EIGHT, NINE, TEN, JACK, QUEEN, KING
+        }
+        
+	private Suit suit;
+	private Value value;
+       
+        /**
+	 * 
+	 * @param value
+	 * @param suit
+	 */
+        public Card(Suit suit, Value value) {
+		this.value = value;
+                this.suit = suit;
+	}
+        
+	public Value getValue() {
+		return this.value;
+	}
 
-   public static final String [] SUITS = {"Hearts", "Diamonds", "Spades", "Clubs"};
-    /**
-     * @return the suit
-     */
-    public String getSuit() {
-        return suit;
-    }
+	public void setValue(Value value) {
+		this.value = value;
+	}
 
-    /**
-     * @param suit the suit to set
-     */
-    public void setSuit(String suit) {
-        this.suit = suit;
-    }
+	public Suit getSuit() {
+		return this.suit;
+	}
 
-    /**
-     * @return the value
-     */
-    public int getValue() {
-        return value;
-    }
-
-    /**
-     * @param value the value to set
-     */
-    public void setValue(int value) {
-        this.value = value;
-    }
-
+	public void setSuit(Suit suit) {
+		this.suit = suit;
+	}
 }
