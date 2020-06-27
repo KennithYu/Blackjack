@@ -1,30 +1,34 @@
 package blackjack;
+import java.util.Stack;
 
 /**
  *
  * @authors Shannon Han, Kennith King Hay Yu
  */
-public class Dealer {
+public class Dealer extends GameParticipant {
 
-    private Card[] deck = new Card[52];
+    protected Card[] deck = new Card[52];
 
     public void shuffleDeck() {
-        // TODO - implement Dealer.shuffle
-        throw new UnsupportedOperationException();
     }
 
     public void dealHand() {
-        // TODO - implement Dealer.startGame
-        throw new UnsupportedOperationException();
     }
 
     public Dealer() {
-        // TODO - implement Dealer.Dealer
-        throw new UnsupportedOperationException();
+        
     }
 
     public void createDeck() {
-        // TODO - implement Dealer.createDeck
+    }
+
+    public void dealCard() {
+        // TODO - implement Dealer.dealCard
+        throw new UnsupportedOperationException();
+    }
+
+    public void showGameResult() {
+        // TODO - implement Dealer.showGameResult
         throw new UnsupportedOperationException();
     }
     
