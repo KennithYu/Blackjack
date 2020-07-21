@@ -20,7 +20,11 @@ public class Player extends GameParticipant {
         throw new UnsupportedOperationException();
     }
 
-    public void betAmount() {
+    /**
+     * 
+     * @param bet
+     */
+    public void betAmount(int bet) {
         // TODO - implement Player.betAmount
         throw new UnsupportedOperationException();
     }

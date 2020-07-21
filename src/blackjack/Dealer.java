@@ -12,7 +12,8 @@ public class Dealer extends GameParticipant {
     public void shuffleDeck() {
     }
 
-    public void dealHand() {
+    public Card dealHand() {
+          throw new UnsupportedOperationException();
     }
 
     public Dealer() {
@@ -22,12 +23,12 @@ public class Dealer extends GameParticipant {
     public void createDeck() {
     }
 
-    public void dealCard() {
+    public Card dealCard() {
         // TODO - implement Dealer.dealCard
         throw new UnsupportedOperationException();
     }
 
-    public void showGameResult() {
+    public String showGameResult() {
         // TODO - implement Dealer.showGameResult
         throw new UnsupportedOperationException();
     }

@@ -12,7 +12,7 @@ public class GameParticipant {
         this.name = name;
     }
     
-    public void handCount() {
+    protected int handCount() {
         // TODO - implement Player.handCount
         throw new UnsupportedOperationException();
     }
