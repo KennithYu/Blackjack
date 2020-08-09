@@ -5,16 +5,22 @@ import java.util.Stack;
  *
  * @authors Shannon Han. Kennith King Hay Yu
  */
-public class Player extends GameParticipant {
-    private String name;
+public class Player {
+    
+    private Hand hand;
     private static int bank = 1000;
     private int currentMoney;
     
-    public void hit() {
-        // TODO - implement Player.hit
-        throw new UnsupportedOperationException();
+    public void hit(Deck deck) {
+        Card card = new Card();
+        card = deck.dealCard();
+        hand.addCard(card);
     }
-
+    
+    public void showHand() {
+        hand.printValues();
+    }
+    
     public void stay() {
         // TODO - implement Player.stay
         throw new UnsupportedOperationException();
@@ -29,14 +35,12 @@ public class Player extends GameParticipant {
         throw new UnsupportedOperationException();
     }
 
-    public void restartGame() {
-        // TODO - implement Player.restartGame
-        throw new UnsupportedOperationException();
+    public void stopGame() {
+        System.exit(0);
     }
 
     public Player() {
-        // TODO - implement Player.Player
-        throw new UnsupportedOperationException();
+      hand = new Hand();
     }
 
     public void allIn() {
@@ -48,5 +52,25 @@ public class Player extends GameParticipant {
         // TODO - implement Player.clearBet
         throw new UnsupportedOperationException();
     }
+    
+
+        
+    /*public int determineHandValue(Card[] cards) {
+        //store cards total value
+        int cardsValue = 0;
+        //check cards
+        //if both are aces, value is 2 or 12
+        int aceCount = 0;
+        for(Card card : cards)
+            if (card.getValue() == Card.Value.ACE) {
+                aceCount++;
+                if (aceCount == 2)
+                    System.out.println();
+            } else {
+               // cardsValue += Card.Value.;
+            }
+        //for a card that is an ace, show prompt for whether the value is 1 or 11
+        return 0;
+    }*/
     
 }
