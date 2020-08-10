@@ -10,11 +10,44 @@ import java.util.Random;
 
 /**
  *
- * @author theje
+ * @author Shannon Han, Kennith King Hay Yu
  */
 public class GroupOfCards {
     
     private ArrayList<Card> cards = new ArrayList<Card>();
+    private int totalValue;
+    private Card tempCard = new Card();
+    
+    public void createFullDeck() {
+
+        for(Suit suit : Suit.values())
+            for(Value value : Value.values()) {
+                tempCard = new Card(suit, value);
+                cards.add(tempCard);
+            }
+    }
+    
+    public int countCards() {
+        return cards.size();
+    }
+    
+    public int getTotalValue() {
+        
+        for(int i = 0; i < cards.size() - 1; i++) {
+            tempCard = (Card)cards.get(i);
+            totalValue += tempCard.getNumericValue();
+        }
+        
+        return totalValue;
+    }
+
+    public void printValues() {
+
+        for(int i = 0; i < cards.size(); i++) {
+            tempCard = (Card)cards.get(i);
+            System.out.println(tempCard.getValueName() + " " + tempCard.getSuitName());
+        }
+    }
     
     public Card getTopCard() {
         return cards.get(0);
@@ -36,12 +69,62 @@ public class GroupOfCards {
        return cards.get(index);
     }
     
-    public void addCard(Card card){
-    
+    public void addCard(Card card) {
+        cards.add(card);
+    }
+
+    public void removeCard(int index) {
+        cards.remove(index);
+    }
+        public void replaceCard(Card card, int index) {
+        cards.set(index, card);
     }
     
-    public void removeCard(Card card) {
-    
+    public String getSuitNameOf(int index) {
+        tempCard = cards.get(index);
+        return tempCard.getSuitName();
     }
+    
+    public String getValueNameOf(int index) {
+        tempCard = cards.get(index);
+        return tempCard.getValueName();
+    }
+    
+    public int getNumericValueOf(int index) {
+        tempCard = cards.get(index);
+        return tempCard.getNumericValue();
+    }
+    
+    public void discardAll() {
+        cards.clear();
+    }
+    
+    public void shuffleCards() {
+        Random rn = new Random();
+
+        for (int i = 0; i < cards.size(); i++) {
+
+            int j = rn.nextInt(i + 1);
+            Card tmp = cards.get(j);
+            cards.set(j, cards.get(i));
+            cards.set(i, tmp);
+        }
+    }
+    
+    public Card dealCard() {
+        tempCard = cards.get(0);
+        cards.remove(0);
+        return tempCard;
+    }
+    
+    public String peek(int numberOfCards) {
         
+        String suitAndValues = "";
+        for(int i = 0; i < numberOfCards; i++) {
+            tempCard = cards.get(i);
+            suitAndValues += tempCard.getSuitName() + " " + tempCard.getValueName();
+        }
+        
+        return suitAndValues;
+    }
 }

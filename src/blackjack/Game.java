@@ -1,17 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package blackjack;
+
+import java.util.Scanner;
 
 /**
  *
- * @author theje
+ * @author Shannon Han
  */
 public class Game {
     
-    public void startGame() {
-        System.out.println("Welcome to Blackjack!");
+    public static void Start(String game) {
+        System.out.println("***Welcome to " + game + "!***");
+        Scanner input = new Scanner(System.in);
+        input.nextLine();
     }
+    
+    public static void End() {
+        System.exit(0);
+    }
+    
+    public static void SignalTurn(Player player) {
+        System.out.println("***" + player.getName() + "'s turn:***");
+    }
+    
+    public void evaluateScores() {
+        
+    }
+    
 }

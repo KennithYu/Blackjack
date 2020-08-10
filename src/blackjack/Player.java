@@ -7,11 +7,12 @@ import java.util.Stack;
  */
 public class Player {
     
+    private String name;
     private Hand hand;
     private static int bank = 1000;
     private int currentMoney;
     
-    public void hit(Deck deck) {
+    public void hit(GroupOfCards deck) {
         Card card = new Card();
         card = deck.dealCard();
         hand.addCard(card);
@@ -39,10 +40,15 @@ public class Player {
         System.exit(0);
     }
 
-    public Player() {
+    public Player(String name) {
       hand = new Hand();
+      this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+    
     public void allIn() {
         // TODO - implement Player.allIn
         throw new UnsupportedOperationException();
