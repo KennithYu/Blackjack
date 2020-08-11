@@ -18,8 +18,12 @@ public class Player {
         hand.addCard(card);
     }
     
-    public void showHand() {
-        hand.printValues();
+    public void getHand() {
+        hand.printSuitAndValue();
+    }
+    
+    public void getHandValue() {
+            hand.printHandValue();
     }
     
     public void stay() {

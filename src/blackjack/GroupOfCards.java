@@ -31,22 +31,48 @@ public class GroupOfCards {
         return cards.size();
     }
     
-    public int getTotalValue() {
-        
-        for(int i = 0; i < cards.size() - 1; i++) {
+    public void getCardsTotalValue() {
+        for(int i = 0; i < cards.size(); i++) {
             tempCard = (Card)cards.get(i);
             totalValue += tempCard.getNumericValue();
+            
+            //if()
+        }
+        System.out.println(totalValue);
+    }
+    
+   /* public int getInitialHandValue() {
+        int bothAces = 0;
+        for(int i = 0; i < cards.size(); i++) {
+            
+            tempCard = (Card)cards.get(i);
+            bothAces = (cards.get(i).getNumericValue() + cards.get(i+1).getNumericValue());
+            if (bothAces == 22) {
+                totalValue -= 10;
+                return totalValue;
+             }
+             if (tempCard.getValueName() == "Ace") {
+                 totalValue += 11;
+                
+                 if (totalValue > 21)
+                    totalValue -= 10;
+             }
+             else {
+                    totalValue += tempCard.getNumericValue();
+             }
         }
         
+        
         return totalValue;
-    }
+    }*/
 
-    public void printValues() {
+    public void printSuitAndValue() {
 
         for(int i = 0; i < cards.size(); i++) {
             tempCard = (Card)cards.get(i);
             System.out.println(tempCard.getValueName() + " " + tempCard.getSuitName());
         }
+     
     }
     
     public Card getTopCard() {
