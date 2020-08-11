@@ -8,13 +8,16 @@ import java.util.Scanner;
  */
 public class Game {
     
+    private static Scanner input = new Scanner(System.in);
+    
     public static void Start(String game) {
         System.out.println("***Welcome to " + game + "!***");
-        Scanner input = new Scanner(System.in);
         input.nextLine();
     }
     
-    public static void End() {
+    public static void End(Player player) {
+        System.out.println("***Over 21!***");
+        input.nextLine();
         System.exit(0);
     }
     
@@ -22,8 +25,18 @@ public class Game {
         System.out.println("***" + player.getName() + "'s turn:***");
     }
     
-    public void evaluateScores() {
-        
+    public static int evaluateScores(int score) {
+        if (score > 21)
+            return 0;
+        else
+            return 1;
+    }
+    
+    public static int promptHitOrStay() {
+        System.out.println("Hit or Stand? \n1:hit\n2:stand");
+        int choice = input.nextInt();
+        return choice;
+
     }
     
 }
