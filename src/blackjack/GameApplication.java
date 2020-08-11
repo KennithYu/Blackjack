@@ -50,7 +50,7 @@ public class GameApplication {
        System.out.println("Player1's cards:");
        player1.getHand();
        player1.getHandValue();
-       int choice = Game.promptHitOrStay();
+       //int choice = Game.promptHitOrStand();
        if(choice == 1)
            player1.hit(deck);
        else

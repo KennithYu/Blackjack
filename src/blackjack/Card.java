@@ -13,9 +13,7 @@ public class Card {
     private Suit suit;
     private Value value;
 
-    public Card() {}
     /**
-     * 
      * @param value
      * @param suit
      */
@@ -32,15 +30,33 @@ public class Card {
         return value.getName();
     }
 
-    public void setValue(Value value) {
-        this.value = value;
-    }
-
     public String getSuitName() {
         return suit.getName();
     }
 
-    public void setSuit(Suit suit) {
-        this.suit = suit;
+    public Suit getSuit() {
+        return suit;
     }
+
+    public Value getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        
+        String output = "";
+        
+        if(value.isFaceCard()) {
+            output += getValueName();
+        } else {
+            output += getNumericValue();
+        }
+        
+        output += " of " + getSuitName();
+        
+        return output;
+    }
+       
+    
 }

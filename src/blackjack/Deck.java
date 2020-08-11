@@ -15,4 +15,13 @@ import java.util.Random;
 public class Deck extends GroupOfCards {
     
     
+    
+    public void createFullDeck() {
+
+        for(Suit suit : Suit.values())
+            for(Value value : Value.values()) {
+                getCards().add(new Card(suit, value));
+            }
+    }
+    
 }

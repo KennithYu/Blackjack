@@ -8,5 +8,7 @@ import java.util.ArrayList;
 
 public class Hand extends GroupOfCards {
 
-    
+    public int getHandValue() {
+        return getCardsTotalValue();
+    }
 }

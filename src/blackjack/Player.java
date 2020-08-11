@@ -23,7 +23,7 @@ public class Player {
     }
     
     public void getHandValue() {
-            hand.printHandValue();
+        //hand.printHandValue();
     }
     
     public void stay() {
