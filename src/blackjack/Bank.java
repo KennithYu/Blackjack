@@ -15,7 +15,7 @@ public class Bank {
     private static final int baseWinnings = 500;
     
     public void disburseWinnings(Player winner) {
-        winner.setWallet(betWinnings + baseWinnings);
+        winner.setWallet(winner.getWallet() + (betWinnings + baseWinnings));
         resetWinnings();
     }
     
