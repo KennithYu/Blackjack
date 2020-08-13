@@ -30,7 +30,7 @@ public class SaveAndLoadSystem {
             o.close();
         } catch (Exception e) {
             e.printStackTrace();
-            //System.out.println("Error initializing stream.");
+            System.out.println("Error initializing stream.");
         }
     }
     
