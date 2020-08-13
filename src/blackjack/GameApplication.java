@@ -42,19 +42,29 @@ public class GameApplication {
        player2.hit(deck);
        
        
-       //Scanner input = new Scanner(System.in);
+       
        //String i = input.nextLine();
        //System.out.flush();
+       do {
        Game.SignalTurn(player1);
        System.out.println("Player1's cards:");
-       player1.showHand();
+       player1.getHand();
+       player1.getHandValue();
+       //int choice = Game.promptHitOrStand();
+       if(choice == 1)
+           player1.hit(deck);
+       else
+           break;
        
-       //show the value player1's hand
-       //
+       } while(Game.evaluateScores(player1.getHandValue()) != 1);
+ 
+        Game.SignalTurn(player2);
+       
+       
             
         
         
         
-    }
+       }
     
 }

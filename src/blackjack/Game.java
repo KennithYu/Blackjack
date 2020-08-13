@@ -7,23 +7,30 @@ import java.util.Scanner;
  * @author Shannon Han
  */
 public class Game {
-    
-    public static void Start(String game) {
-        System.out.println("***Welcome to " + game + "!***");
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
+
+    public String Start(String game) {
+        return "***Welcome to " + game + "!***";
+        
     }
     
-    public static void End() {
+    public void End(Player player) {
         System.exit(0);
     }
     
-    public static void SignalTurn(Player player) {
-        System.out.println("***" + player.getName() + "'s turn:***");
+    public String SignalTurn(Player player) {
+        return "***" + player.getName() + "'s turn:***";
     }
     
-    public void evaluateScores() {
-        
+    public int evaluateScores(int score) {
+        if (score > 21)
+            return 0;
+        else
+            return 1;
+    }
+    
+    //TODO return type
+    public void promptHitOrStay() {
+
     }
     
 }
