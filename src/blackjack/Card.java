@@ -21,6 +21,8 @@ public class Card {
         this.value = value;
         this.suit = suit;
     }
+    
+    public Card() {}
 
     public int getNumericValue() {
         return value.getValue();

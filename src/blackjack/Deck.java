@@ -12,15 +12,12 @@ import java.util.Random;
  *
  * @author Shannon Han, Kennith King Hay Yu
  */
-public class Deck extends GroupOfCards {
+public class Deck extends GroupOfCards {  
     
-    
-    
-    public void createFullDeck() {
-
+    public void createDeck() {
         for(Suit suit : Suit.values())
             for(Value value : Value.values()) {
-                getCards().add(new Card(suit, value));
+                cards.add(new Card(suit, value));
             }
     }
     

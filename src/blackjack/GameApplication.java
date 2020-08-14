@@ -11,60 +11,30 @@ import java.util.Scanner;
 public class GameApplication {
     
     public static void main(String[] args) {
-        
-        Game.Start("Blackjack");
+          
 
-        Player player1 = new Player("player1");
-        Player player2 = new Player("player2");
-        GroupOfCards deck = new Deck();
+        SaveAndLoadSystem sl = new SaveAndLoadSystem();
+        //Saving structure
+//        Player player1 = new Player("Kennith");
+//        Player player2 = new Player("Shannon");  
+//        sl.savePlayers(player1, player2);
+
+        // Loading structure
+        Player[] players = sl.loadPlayers();
+        Player player1 = players[0];
+        Player player2 = players[1];
+        player1.initializeHand();
+        player2.initializeHand();
+        System.out.println(player1.toString() + "\n" + player2.toString());
         
-        //testing purposes only
-        /*System.out.println("Before shuffle");
        
-        for (int i = 0; i < deck.cards.length; i++)
-            System.out.println(deck.cards[i].getSuitName() + " " + deck.cards[i].getValueName());*/
-        
-        deck.createFullDeck();
+        Deck deck = new Deck();
+        BlackJackGame newGame = new BlackJackGame(player1, player2, deck);
+        deck.createDeck();
         deck.shuffleCards();
         
-        //testing purposes only
-        /*System.out.println("After shuffle");
-        Card tmp = new Card();
-        for (int i = 0; i < deck.countCards(); i++) {
-            tmp = (Card)deck.getCard(i);
-            System.out.println(tmp.getSuitName() + " " + tmp.getValueName());
-        }*/
-        
-       //deal both players cards for their initial hand
-       player1.hit(deck);
-       player2.hit(deck);
-       player1.hit(deck);
-       player2.hit(deck);
+        newGame.startGame();
        
-       
-       
-       //String i = input.nextLine();
-       //System.out.flush();
-       do {
-       Game.SignalTurn(player1);
-       System.out.println("Player1's cards:");
-       player1.getHand();
-       player1.getHandValue();
-       //int choice = Game.promptHitOrStand();
-       if(choice == 1)
-           player1.hit(deck);
-       else
-           break;
-       
-       } while(Game.evaluateScores(player1.getHandValue()) != 1);
- 
-        Game.SignalTurn(player2);
-       
-       
-            
-        
-        
-        
        }
     
 }
