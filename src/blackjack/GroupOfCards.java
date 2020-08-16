@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package blackjack;
 
 import java.util.ArrayList;
@@ -10,11 +5,23 @@ import java.util.Random;
 
 /**
  *
- * @author Shannon Han, Kennith King Hay Yu
+ * @author Kennith King Hay Yu
  */
-public class GroupOfCards {
+public abstract class GroupOfCards {
     
     protected ArrayList<Card> cards = new ArrayList();
+    
+    public abstract void createGroup();
+    
+    public int getValues() {
+        
+        int value = 0;
+        for (int i = 0; i < cards.size(); i++) {
+            value += cards.get(i).getNumericValue();
+        }
+        
+        return value;
+    }
     
     public int countCards() {
         return cards.size();

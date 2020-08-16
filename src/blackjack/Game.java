@@ -1,19 +1,13 @@
 package blackjack;
 
-import java.util.Scanner;
-
 /**
  *
- * @author Shannon Han
+ * @author Kennith King Hay Yu
  */
 public abstract class Game {
     
     public abstract void displayGameRules();
 
     public abstract void startGame();
-    
-    public void exitGame() {
-        System.exit(0);
-    }
     
 }
