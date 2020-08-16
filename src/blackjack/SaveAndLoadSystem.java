@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package blackjack;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,7 +12,7 @@ import java.io.ObjectOutputStream;
  */
 public class SaveAndLoadSystem {
     
-    public void savePlayers(Player player1, Player player2) {
+    public static void savePlayers(Player player1, Player player2) {
        
         try {
             FileOutputStream f = new FileOutputStream(new File("Save Files/Players.txt"));

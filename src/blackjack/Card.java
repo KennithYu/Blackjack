@@ -1,11 +1,8 @@
 package blackjack;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  *
- * @authors Shannon Han, Kennith King Hay Yu
+ * @author Kennith King Hay Yu
  */
 //this is a test
 public class Card {

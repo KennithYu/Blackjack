@@ -1,32 +1,36 @@
 package blackjack;
-import java.util.Stack;
 import java.io.Serializable;
 
 /**
- *
- * @authors Shannon Han. Kennith King Hay Yu
+ * Player class holds information and functions related to a user playing Blackjack
+ * Player class implements the class Serializable in order to save Player objects to a file
+ * @author Kennith King Hay Yu
  */
 public class Player implements Serializable {
     
     private String name;
     private int winRecord = 0;
-    private int wallet = 1000;
     private static final long serialVersionUID = 1L;
-    private transient Hand hand;
-    private transient boolean stay = false;
-    private transient boolean bust = false;
+    protected transient GroupOfCards hand;
+    private transient PlayerStatus status;
       
     public Player(String name) {
-      hand = new Hand();
       this.name = name;
+      status = PlayerStatus.PLAYING;
+      initialize();
     }
     
-    public Player() {
+    public Player() {}
+    
+    /**
+     * initialize method was created to inject a GroupOfCards object of type Hand
+     * the method redundantly sets the status to PLAYING in the case of players being loaded from a file
+     */
+    public void initialize() {
+        GroupOfCardsFactory factory = new GroupOfCardsFactory();
+        hand = factory.getGroupOfCards(GroupOfCardsType.HAND);
         
-    }
-    
-    public void initializeHand() {
-        hand = new Hand();
+        status = PlayerStatus.PLAYING;
     }
     
     public void hit(GroupOfCards deck) {
@@ -39,44 +43,30 @@ public class Player implements Serializable {
     }
     
     public int getHandValue() {
-       return hand.getHandValue();
+       return hand.getValues();
     }  
 
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public String getName() {
         return this.name;
     }
 
-    public void setStay(boolean stay) {
-        this.stay = stay;
+    public int getWinRecord() {
+        return winRecord;
     }
 
-    public void setBust(boolean bust) {
-        this.bust = bust;
-    }
-    
-    public boolean isOut() {
-        if (stay || bust) {
-            return true;
-        } else {
-            return false;
-        }
-    }   
-
-    public void setWallet(int wallet) {
-        this.wallet = wallet;
+    public void setWinRecord(int winRecord) {
+        this.winRecord = winRecord;
     }
 
-    public int getWallet() {
-        return wallet;
+    public void setStatus(PlayerStatus status) {
+        this.status = status;
     }
-    
-    
 
-    @Override
-    public String toString() {
-        return "Player{" + "name=" + name + ", winRecord=" + winRecord + ", wallet=" + wallet + '}';
-    }
-    
-    
-    
+    public PlayerStatus getStatus() {
+        return status;
+    } 
 }
